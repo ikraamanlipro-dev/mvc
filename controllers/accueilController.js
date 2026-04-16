@@ -1,11 +1,11 @@
 /**
- * Ce fichier contient le contrôleur pour la page d'accueil 
- * Dans ce fichier on va créer les routes pour la page accueil.ejs 
+ * Ce fichier contient le contrôleur pour la page d'accueil
+ * Il gère la logique de la page d'accueil 
  */
 
-// on importe le module express qui nous permettra de créer une application web
-const express = require('express');
-
-// on crée un routeur express en appelant la fonction express.Router()
-const router = express.Router();
-
+// on exporte un objet qui contient une méthode accueilView qui rend la vue accueil.ejs
+module.exports = {
+    accueilView:(req, res) => {
+        res.render('accueil'); // rend la vue accueil.ejs
+    }
+}
