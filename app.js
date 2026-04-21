@@ -5,13 +5,30 @@
 // on importe le module express qui nous permettra de créer une application web
 const express = require('express');
 
-
-
 // on crée une application express en appelant la fonction express()
 const app = express();
 
+const mySql2 = require('mysql2'); // on importe le module mysql2 pour se connecter à la base de données
+
+// import express-connection
+const expressMyConnection = require('express-myconnection')
+
+// ===== configuration de la base de données =====
+
+// Configuration de la connexion à la base de données
+const dbConfig = {
+    host: 'localhost',
+    user: 'root',
+    password: 'Myroot33!',
+    database: 'maygourmet',
+    port: 3306
+};
+
+
 app.set('views', './views'); // on indique à express où se trouvent les vues
 app.set('view engine', 'ejs'); // on indique à express que nous utilisons le moteur de template ejs
+
+app.use(express.static('public')); // on indique à express où se trouvent les fichiers statiques (css, js, images)
 
 
 // ==== accueilRoute ====
