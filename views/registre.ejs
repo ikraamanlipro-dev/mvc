@@ -8,6 +8,28 @@
 <body>
     <%- include('navbar') %>
     <h1>Bienvenue dans la page de registre</h1>
+
+    <form action="/registre" method="POST">
+        <div class="container">
+            <h3>S'enregistrer</h3>
+            
+            <p>Veuillez remplir ce formulaire</p>
+
+             <hr> <!-- insert une ligne de séparation -->
+
+             <!-- Zone de saisie de l'email -->
+            <label for="email"><b>Email</b></label>
+            <input type="email" id="email" name="email" >
+
+            <!-- Zone de saisie pour le mot de passe -->
+            <label for="motdepasse"><b>Mot de passe</b></label>
+            <input type="password" id="motdepasse" name="motdepasse" >
+
+            <button type="submit">Enregistrer</button>
+        </div>
+
+    </form>
+        
     
 </body>
 </html>
