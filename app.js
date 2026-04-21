@@ -39,6 +39,7 @@ app.use(expressMyConnection(mySql2, dbConfig, 'pool'));
 // on importe la route pour la route d'accueil
 const accueilRoute = require('./routes/accueilRoute');
 
+
 // on utilise la route d'accueil pour la racine de notre site web
 app.use('/', accueilRoute); // on utilise la route d'accueil pour la racine de notre site web
 
@@ -47,6 +48,8 @@ const authentificationRoute = require('./routes/authentificationRoute'); // on i
 
 // on utilise la route pour l'authentification pour la racine de notre site web
 app.use('/', authentificationRoute); // on utilise la route pour l'authentification pour la racine de notre site web
+
+
 
 // on exporte notre application express pour pouvoir l'utiliser dans le fichier myserver.js
 module.exports = app;
