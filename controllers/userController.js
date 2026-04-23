@@ -111,3 +111,17 @@ exports.delete = (req, res) => {
 
     })
 };
+
+exports.deleteAll = (req, res) => {
+    User.destroy({
+        where: {}, // Condition pour supprimer tous les utilisateurs
+        truncate: false // Ne pas tronquer la table, mais supprimer les enregistrements
+    }).then(nums => {
+        res.send({ message: `${nums} Tous les utilisateurs ont été supprimés avec succès.` });
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: err.message || "Une erreur est survenue lors de la suppression de tous les utilisateurs."
+        });
+    });
+};
