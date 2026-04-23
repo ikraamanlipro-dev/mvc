@@ -29,4 +29,7 @@ router.get('/user', userController.findAll); // route pour récupérer tous les 
 // route pour supprimer un utilisateur par son ID
 router.delete('/user/:id', userController.delete); // route pour supprimer un utilisateur par son ID
 
+// route pour supprimer tous les utilisateurs
+router.delete('/user', userController.deleteAll); // route pour supprimer tous les utilisateurs
+
 module.exports = router;
