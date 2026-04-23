@@ -16,4 +16,17 @@ router.get('/registre', authentificationController.registerView); // route pour 
 // route pour enregistrer un nouvel utilisateur dans la base de données
 router.post('/registre', authentificationController.registerUser); // route pour enregistrer un nouvel utilisateur dans la base de données
 
+// ==== routes pour les utilisateurs ====
+
+const userController = require('../controllers/userController'); // on importe le contrôleur pour les utilisateurs
+
+// route pour récupérer un utilisateur par son ID
+router.get('/user/:id', userController.findOne); // route pour récupérer un utilisateur par son ID
+
+// route pour récupérer tous les utilisateurs
+router.get('/user', userController.findAll); // route pour récupérer tous les utilisateurs
+
+// route pour supprimer un utilisateur par son ID
+router.delete('/user/:id', userController.delete); // route pour supprimer un utilisateur par son ID
+
 module.exports = router;
