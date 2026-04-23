@@ -9,7 +9,6 @@ const sequelize = new Sequelize(
     {
         host: dbConfig.HOST, // adresse du serveur de base de données 
         dialect: dbConfig.dialect, // type de base de données
-        operatorsAliases: false, // désactive les alias d'opérateurs pour des raisons de sécurité
 
         pool: {
             max: dbConfig.pool.max, // nombre maximum de connexions simultanées dans le pool

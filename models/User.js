@@ -35,8 +35,9 @@ module.exports = (sequelize,Sequelize) => {
         },
         password: {
             type: Sequelize.STRING // type de données pour le mot de passe
-        }
-    });
+        },
+    },{timestamps: false}
+);
 
     return UserModel;
 }
