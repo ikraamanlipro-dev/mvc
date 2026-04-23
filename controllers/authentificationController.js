@@ -12,12 +12,11 @@ module.exports = {
     registerUser: async (req, res) => {
         console.log('### Controller registerUser');
         console.log('### req.body : ', req.body);
+        console.log('### emailUser : ', req.body.email);
+        console.log('### passwordUser : ', req.body.motdepasse);
 
         const emailUser = req.body.email; // Récupère l'email de l'utilisateur à partir du corps de la requête
         const passwordUser = req.body.motdepasse; // Récupère le mot de passe de l'utilisateur à partir du corps de la requête
-
-        console.log('### emailUser : ', emailUser);
-        console.log('### passwordUser : ', passwordUser);
 
         // je m'assure que le mail et le mot de passe ne sont pas vides
         if (!emailUser || !passwordUser) {
@@ -25,7 +24,7 @@ module.exports = {
 
         };
 
-        let requeteSQL = 'INSERT INTO user (id,email, password) VALUES (?, ?, ?)'; // Requête SQL pour insérer un nouvel utilisateur dans la table users
+        let requeteSQL = 'INSERT INTO users (id,email, password) VALUES (?, ?, ?)'; // Requête SQL pour insérer un nouvel utilisateur dans la table users
 
         let ordreDonnee = [null , emailUser, passwordUser]; // Tableau des données à insérer dans la table users (id est null car il est auto-incrémenté)
 
@@ -44,8 +43,5 @@ module.exports = {
             }
         });
     }
-    
+};
 
-
-
-}
