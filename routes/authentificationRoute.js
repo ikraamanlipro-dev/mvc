@@ -32,4 +32,7 @@ router.delete('/user/:id', userController.delete); // route pour supprimer un ut
 // route pour supprimer tous les utilisateurs
 router.delete('/user', userController.deleteAll); // route pour supprimer tous les utilisateurs
 
+// route pour mettre à jour un utilisateur par son ID
+router.put('/user/:id', userController.update); // route pour mettre à jour un utilisateur par son ID
+
 module.exports = router;
