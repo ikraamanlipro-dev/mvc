@@ -125,3 +125,26 @@ exports.deleteAll = (req, res) => {
         });
     });
 };
+
+// Méthode pour mettre à jour un utilisateur par son ID
+exports.update = (req, res) => {
+    const idUser = req.params.id; // Récupère l'ID de l'utilisateur à partir des paramètres de la requête
+
+    User.update(req.body, { // Utilise la méthode update du modèle User pour mettre à jour l'utilisateur avec l'ID spécifié
+        where: { id: idUser } // Condition pour trouver l'utilisateur à mettre à jour
+        }).then(num => {
+            if (num[0] == 1){ // Si num[0] est égal à 1, cela signifie que l'utilisateur a été mis à jour avec succès
+                res.send({
+                    message : ' Mise à jour réussie.'
+                });
+            }else{ // Sinon, cela signifie que l'utilisateur n'a pas été trouvé ou n'a pas pu être mis à jour
+                res.send({
+                    message: 'Echec de la mise à jour. '
+                });
+            }
+        }).catch(err => {
+            res.status(500).send({
+                message: `Erreur lors de la mise à jour de l'utilisateur avec l'id ${idUser}.`
+            });
+        });
+};
