@@ -30,7 +30,8 @@ app.set('view engine', 'ejs'); // on indique à express que nous utilisons le mo
 
 app.use(express.static('public')); // on indique à express où se trouvent les fichiers statiques (css, js, images)
 
-app.use(express.urlencoded({ extended: false })); // extrait les donnée saisies dans les formulaires 
+app.use(express.json()); // extrait les données au format JSON
+app.use(express.urlencoded({ extended: false })); // extrait les donnée saisies dans les formulaires
 
 app.use(expressMyConnection(mySql2, dbConfig, 'pool'));
 
